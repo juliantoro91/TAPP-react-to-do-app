@@ -1,0 +1,27 @@
+.todo-search {
+    --icon-width: 24px;
+    width: calc(var(--display-size) - 2 * var(--radius));;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    justify-content:left;
+    align-items:flex-start;
+}
+
+.todo-search img {
+    width: var(--icon-width);
+    margin-right: 10px;
+}
+
+.todo-search input {
+    background-color: var(--primary-color);
+    width: auto;
+    height: var(--icon-width);
+    border: 0px;
+    font-size: var(--md);
+    color: var(--white);
+}
+
+.todo-search input::placeholder {
+    color: var(--white);
+}

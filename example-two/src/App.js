@@ -1,9 +1,9 @@
 // import './App.css';
-import { TodoCounter } from "./TodoCounter";
-import { TodoSearch } from "./TodoSearch";
-import { TodoList } from "./TodoList";
-import { TodoItem } from "./TodoItem";
-import { CreateTodoButton } from "./CreateTodoButton";
+import { TodoHeader } from "./components/TodoHeader";
+import { TodoSearch } from "./components/TodoSearch";
+import { TodoList } from "./components/TodoList";
+import { TodoItem } from "./components/TodoItem";
+import { CreateTodoButton } from "./components/CreateTodoButton";
 
 const todos = [
   {
@@ -20,10 +20,15 @@ const todos = [
   },
 ];
 
+const testTask = {
+  completedTasks: 1,
+  totalTasks: 3,
+}
+
 function App() {
   return (
     <>
-      <TodoCounter />
+      <TodoHeader completedTasks={testTask.completedTasks} totalTasks={testTask.totalTasks} />
       
       <TodoSearch />
       
