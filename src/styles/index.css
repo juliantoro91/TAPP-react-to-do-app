@@ -1,0 +1,49 @@
+:root {
+  /* Colors */
+  --primary-color: #3A0CA3;
+  --secundary-color: #4CC9F0;
+  --opposite-color: #B5179E;
+  --white: #ffffff;
+  --black: #151515;
+  --text-color-dark: #3A3A3A;
+  --text-color-white: var(--white);
+  --medium-gray: #C2C2C2;
+  --light-gray: #EEEEEE;
+  --emphasis1: #4895EF;
+  --emphasis2: #4361EE;
+  --emphasis3: #3F37C9;
+  --emphasis4: #480CA8;
+  --emphasis5: #560BAD;
+  --emphasis6: #7209B7;
+
+  /* Font */
+  --principal-font: Roboto, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  --sm: 1.4rem;
+  --md: 1.6rem;
+  --lg: 1.8rem;
+
+  /* Screen size */
+  --display-width: 100vw;
+  --min-width: 320px;
+  --max-width: 500px;
+  --height-factor: calc(1625/750);
+  --display-height: calc(var(--display-width) * var(--height-factor));
+  --min-height: calc(var(--min-width) * var(--height-factor));
+  --max-height: calc(var(--max-width) * var(--height-factor));
+  --base-width: 410px;
+  --base-radius: calc(var(--base-width) * 90 / 750);
+  --content-width: calc( var(--display-width) - ( 2 * var(--base-radius) * var(--padding-factor)));
+  --min-content-width: calc( var(--min-width) - ( 2 * var(--base-radius) * var(--padding-factor)));
+  --max-content-width: calc( var(--max-width) - ( 2 * var(--base-radius) * var(--padding-factor)));
+  --padding-factor: 0.75;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}

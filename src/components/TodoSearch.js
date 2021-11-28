@@ -4,24 +4,25 @@ import '../styles/TodoSearch.css';
 import icon from "../images/search-icon.png";
 
 const content = {
-    heightFactor: 237/750,
-    //heightFactor: 'auto',
+    height: '15%', // Height in percent
+    displacement: 0, // how many radius the element gets displaced
+    color: '--primary-color',
     icon: {
         url: icon,
-        alt: 'Search icon to search your card',
+        alt: 'Search icon',
     },
     input: {
         placeholder: 'Search card...',
     },
 }
 
-function TodoSearch() {
+function TodoSearch(props) {
     return (
-        <CurvedContainer heightFactor={content.heightFactor}>
-            <div className="todo-search">
+        <CurvedContainer height={content.height} displacement={content.displacement} color={content.color}>
+            <section className="todo-search">
                 <img src={content.icon.url} alt={content.icon.alt} />
                 <input placeholder={content.input.placeholder} />
-            </div>
+            </section>
         </CurvedContainer>
     );
 }

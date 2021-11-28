@@ -1,0 +1,27 @@
+body {
+  font-family: var(--principal-font);
+  font-size: var(--md);
+  color: var(--text-color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  width: var(--display-width);
+  min-width: var(--min-width);
+  max-width: var(--max-width);
+  height: var(--display-height);
+  min-height: var(--min-height);
+  max-height: var(--max-height);
+}
+
+h2 {
+  font-size: var(--lg);
+  font-weight: 300;
+}
+
+h3 {
+  font-size: var(--md);
+  font-weight: 400;
+}

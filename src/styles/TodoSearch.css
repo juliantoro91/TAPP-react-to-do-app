@@ -1,6 +1,6 @@
 .todo-search {
     --icon-width: 24px;
-    width: calc(var(--display-size) - 2 * var(--radius));;
+    --icon-margin-rigth: 15px;
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -10,14 +10,17 @@
 
 .todo-search img {
     width: var(--icon-width);
-    margin-right: 10px;
+    margin-right: var(--icon-margin-rigth);
 }
 
 .todo-search input {
     background-color: var(--primary-color);
-    width: auto;
+    width: calc(var(--content-width) - var(--icon-margin-rigth) - var(--icon-width));
+    min-width: calc(var(--min-content-width) - var(--icon-margin-rigth) - var(--icon-width));
+    max-width: calc(var(--max-content-width) - var(--icon-margin-rigth) - var(--icon-width));
     height: var(--icon-width);
     border: 0px;
+    border-bottom: 1px solid var(--white);
     font-size: var(--md);
     color: var(--white);
 }
