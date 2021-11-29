@@ -1,11 +1,6 @@
 // IMPORT SECTION
-import './App.css';
-import { TodoHeader } from "./components/TodoHeader";
-import { TodoSearch } from "./components/TodoSearch";
-import { TodoList } from "./components/TodoList";
-import { TodoItem } from "./components/TodoItem";
-import { CreateTodoButton } from "./components/CreateTodoButton";
 import React from "react";
+import { AppUI } from "./AppUI";
 
 // CONTENT 
 const defaultTodos = [
@@ -21,7 +16,7 @@ const defaultTodos = [
   },
   {
     text: 'As the years pass by, we all know owners look more and more like their dogs',
-    completed: true,
+    completed: false,
     deleted: false,
   },
   {
@@ -42,7 +37,7 @@ const defaultTodos = [
   {
     text: 'The old apple revels in its authority',
     completed: false,
-    deleted: true,
+    deleted: false,
   },
 ];
 
@@ -71,9 +66,23 @@ const getColor = GetColor();
 // COMPONENT
 function App() {
 
+  // INITIALIZE LOCAL STORAGE
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  //localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+
   // STATES
   const [searchValue, setSearchValue] = React.useState('');
-  const [allTodos, setTodos] = React.useState(defaultTodos);
+  const [allTodos, setTodos] = React.useState(parsedTodos);
 
   // ACTIVE TODOS
   const todos = allTodos.filter(todo => (!todo.deleted)); // Todos not marked as deleted
@@ -88,10 +97,7 @@ function App() {
   const searchedTodos = todos.filter(
     todo => (todo.text.toLowerCase().includes(searchValue.toLowerCase()))); // To filter todos by search criteria
   
-  let matchedSearchLabel = ''; // To update search side label
-  (searchedTodos.length < todos.length) ?
-      matchedSearchLabel = searchedTodos.length + " coincidencias" :
-      matchedSearchLabel = '';
+  let matchedSearchLabel = searchedTodos.length + " coincidences"; // To update search side label
 
   // COLOR ASIGNER
   todos.forEach(todo => {
@@ -99,7 +105,13 @@ function App() {
   });
 
   // SIDE FUNCTIONS
-  function todoComplete(text) {
+  const saveTodos = (newTodos) => {
+    const stringifiedTodos = JSON.stringify(newTodos);
+    localStorage.setItem('TODOS_V1', stringifiedTodos);
+    setTodos(newTodos);
+  }
+
+  const todoComplete = (text) => {
     const index = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
 
@@ -107,10 +119,10 @@ function App() {
         newTodos[index].deleted = true :
         newTodos[index].completed = true ;
 
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
-  function todoDelete(text) {
+  const todoDelete = (text) => {
     const index = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
 
@@ -118,25 +130,20 @@ function App() {
         newTodos[index].completed = false :
         newTodos[index].deleted = true ;
 
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
   
   // RETURNER
   return (
-    <>
-      <TodoHeader completedTasks={tasksState.completedTasks} totalTasks={tasksState.totalTasks} />
-      
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} matchedSearchLabel={matchedSearchLabel} />
-      
-      <TodoList>
-        {searchedTodos.map(todo => 
-          <TodoItem key={todo.text} text={todo.text} completed={todo.completed} deleted={todo.deleted} color={todo.color} todoComplete={() => todoComplete(todo.text)} todoDelete={() => todoDelete(todo.text)} />
-        )}
-      </TodoList>
-
-      <CreateTodoButton />
-      
-    </>
+    <AppUI 
+      tasksState={tasksState}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      matchedSearchLabel={matchedSearchLabel}
+      searchedTodos={searchedTodos}
+      todoComplete={todoComplete}
+      todoDelete={todoDelete}
+    />
   );
 }
 
