@@ -20,7 +20,7 @@ function BaseButton(props) {
     const completed = props.completed;
 
     return (
-        <button><StyledButton src={setIconUrl(urlActive, urlInactive, completed)} width={props.width}/></button>
+        <button><StyledButton src={setIconUrl(urlActive, urlInactive, completed)} width={props.width} onClick={props.action} /></button>
     );
 }
 

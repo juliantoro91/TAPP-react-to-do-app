@@ -3,9 +3,9 @@
     --icon-margin-rigth: 15px;
     position: absolute;
     display: flex;
-    justify-content: space-between;
-    justify-content:left;
+    justify-content:flex-end;
     align-items:flex-start;
+    flex-wrap: wrap;
 }
 
 .todo-search img {
@@ -27,4 +27,9 @@
 
 .todo-search input::placeholder {
     color: var(--white);
+}
+
+.todo-search p {
+    color: var(--white);
+    padding-top: 5px;
 }

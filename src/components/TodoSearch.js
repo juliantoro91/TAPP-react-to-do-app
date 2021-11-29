@@ -16,12 +16,19 @@ const content = {
     },
 }
 
-function TodoSearch(props) {
+
+function TodoSearch({ searchValue, setSearchValue, matchedSearchLabel }) {
+
+    const onSearchValueChange = (event) => {
+        setSearchValue(event.target.value);
+    }
+    
     return (
         <CurvedContainer height={content.height} displacement={content.displacement} color={content.color}>
             <section className="todo-search">
                 <img src={content.icon.url} alt={content.icon.alt} />
-                <input placeholder={content.input.placeholder} />
+                <input placeholder={content.input.placeholder} value={searchValue} onChange={onSearchValueChange} />
+                <p>{ matchedSearchLabel }</p>
             </section>
         </CurvedContainer>
     );

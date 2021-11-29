@@ -33,15 +33,15 @@ const StyledCard = styled.div`
     }
 `;
 
-function TodoItem(props) {
+function TodoItem({ text, completed, deleted, color, todoComplete, todoDelete }) {
     return (
         <li>
-            <StyledCard className="card-item" color={props.color} disabled={props.completed}>
-                <BaseButton width={content.doneButton.width} urlActive={content.doneButton.urlActive} urlInactive={content.doneButton.urlInactive} completed={props.completed}/>
-                <p>{props.text}</p>
+            <StyledCard className="card-item" color={color} disabled={completed}>
+                <BaseButton width={content.doneButton.width} urlActive={content.doneButton.urlActive} urlInactive={content.doneButton.urlInactive} completed={completed} action={todoComplete} />
+                <p>{text}</p>
             </StyledCard>
             <div className="deleteBtn">
-                <BaseButton width={content.delButton.width} urlActive={content.delButton.urlActive} urlInactive={content.delButton.urlInactive} completed={props.completed}/>
+                <BaseButton width={content.delButton.width} urlActive={content.delButton.urlActive} urlInactive={content.delButton.urlInactive} completed={completed} action={todoDelete} />
             </div>
         </li>
     );
