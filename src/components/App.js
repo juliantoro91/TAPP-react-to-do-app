@@ -8,7 +8,12 @@ import { useLocalStorage } from "./logic/useLocalStorage";
 function App() {
 
   // STATES
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error
+   } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   // TODOS COUNTERS
@@ -55,6 +60,8 @@ function App() {
   // RETURNER
   return (
     <AppUI 
+      loading={loading}
+      error={error}
       tasksState={tasksState}
       searchValue={searchValue}
       setSearchValue={setSearchValue}

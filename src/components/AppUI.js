@@ -7,6 +7,8 @@ import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 
 function AppUI( {
+    loading,
+    error,
     tasksState,
     searchValue,
     setSearchValue,
@@ -23,9 +25,16 @@ function AppUI( {
             <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} matchedSearchLabel={matchedSearchLabel} />
             
             <TodoList>
-                {searchedTodos.map(todo => 
-                <TodoItem key={todo.text} text={todo.text} completed={todo.completed} deleted={todo.deleted} color={todo.color} todoComplete={() => todoComplete(todo.text)} todoDelete={() => todoDelete(todo.text)} />
-                )}
+                {(error) ?
+                    <p>Lo sentimos, ha ocurrido un error, vuelve a recargar la página</p> :
+                    (loading) ?
+                    <p>Estamos cargando, pronto podrás comenzar</p> :
+                    (!searchedTodos.length) ?
+                    <p>¡Crea tu primer TODO!</p> :
+                    searchedTodos.map(todo => 
+                        <TodoItem key={todo.text} text={todo.text} completed={todo.completed} deleted={todo.deleted} color={todo.color} todoComplete={() => todoComplete(todo.text)} todoDelete={() => todoDelete(todo.text)} />
+                        )
+                }
             </TodoList>
 
             <CreateTodoButton />
