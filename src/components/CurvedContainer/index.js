@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import '../styles/CurvedContainer.css';
+import './CurvedContainer.css';
 
 const Container = styled.div`
     width: 100%;

@@ -1,7 +1,8 @@
-import React from "react";
-import { CurvedContainer } from "./CurvedContainer";
-import '../styles/TodoSearch.css';
-import icon from "../images/search-icon.png";
+import React, { useContext } from "react";
+import { CurvedContainer } from "../CurvedContainer";
+import './TodoSearch.css';
+import icon from "../../images/search-icon.png";
+import { TodoContext } from "../TodoContext";
 
 const content = {
     height: '15%', // Height in percent
@@ -17,7 +18,11 @@ const content = {
 }
 
 
-function TodoSearch({ searchValue, setSearchValue, matchedSearchLabel }) {
+function TodoSearch() {
+
+    const { searchValue,
+        setSearchValue,
+        matchedSearchLabel } = useContext(TodoContext);
 
     const onSearchValueChange = (event) => {
         setSearchValue(event.target.value);

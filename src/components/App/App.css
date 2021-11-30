@@ -2,9 +2,6 @@ body {
   font-family: var(--principal-font);
   font-size: var(--md);
   color: var(--text-color-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .main-container {

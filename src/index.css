@@ -5,7 +5,7 @@
   --opposite-color: #B5179E;
   --white: #ffffff;
   --black: #151515;
-  --text-color-dark: #3A3A3A;
+  --text-color-dark: rgb(58, 58, 58);
   --text-color-white: var(--white);
   --medium-gray: #C2C2C2;
   --light-gray: #EEEEEE;
@@ -26,12 +26,16 @@
   --display-width: 100vw;
   --min-width: 320px;
   --max-width: 500px;
-  --display-height: calc(var(--display-width) * (1625/750));
-  --min-display-height: calc(var(--min-width) * (1625/750));
-  --max-display-height: calc(var(--max-width) * (1625/750));
-  --content-width: calc(var(--display-width) - ( 2 * var(--base-radius)) * var(--padding-factor));
-  --min-content-width: calc(var(--min-width) - ( 2 * var(--base-radius)) * var(--padding-factor));
-  --max-content-width: calc(var(--max-width) - ( 2 * var(--base-radius)) * var(--padding-factor));
+  --height-factor: calc(1625/750);
+  --display-height: calc(var(--display-width) * var(--height-factor));
+  --min-height: calc(var(--min-width) * var(--height-factor));
+  --max-height: calc(var(--max-width) * var(--height-factor));
+  --base-width: 410px;
+  --base-radius: calc(var(--base-width) * 90 / 750);
+  --content-width: calc( var(--display-width) - ( 2 * var(--base-radius) * var(--padding-factor)));
+  --min-content-width: calc( var(--min-width) - ( 2 * var(--base-radius) * var(--padding-factor)));
+  --max-content-width: calc( var(--max-width) - ( 2 * var(--base-radius) * var(--padding-factor)));
+  --padding-factor: 0.75;
 }
 
 * {

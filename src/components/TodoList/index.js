@@ -1,6 +1,6 @@
 import React from "react";
-import { CurvedContainer } from "./CurvedContainer";
-import '../styles/TodoList.css';
+import { CurvedContainer } from "../CurvedContainer";
+import './TodoList.css';
 
 const content = {
     height: '58%', // Height in percent

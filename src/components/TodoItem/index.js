@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { BaseButton } from "./BaseButton";
-import '../styles/TodoItem.css';
-import DoneIcon from '../images/done-icon.png';
-import DoneIconInactive from '../images/done-icon-inactive.png';
-import DelIcon from '../images/del-icon.png';
-import DelIconInactive from '../images/del-icon-inactive.png';
+import { BaseButton } from "../BaseButton";
+import './TodoItem.css';
+import DoneIcon from '../../images/done-icon.png';
+import DoneIconInactive from '../../images/done-icon-inactive.png';
+import DelIcon from '../../images/del-icon.png';
+import DelIconInactive from '../../images/del-icon-inactive.png';
 
 const content = {
     doneButton: {
@@ -37,11 +37,23 @@ function TodoItem({ text, completed, deleted, color, todoComplete, todoDelete })
     return (
         <li>
             <StyledCard className="card-item" color={color} disabled={completed}>
-                <BaseButton width={content.doneButton.width} urlActive={content.doneButton.urlActive} urlInactive={content.doneButton.urlInactive} completed={completed} action={todoComplete} />
+                <BaseButton 
+                    width={content.doneButton.width} 
+                    urlActive={content.doneButton.urlActive} 
+                    urlInactive={content.doneButton.urlInactive} 
+                    completed={completed} 
+                    action={todoComplete}
+                    type="button" />
                 <p>{text}</p>
             </StyledCard>
             <div className="deleteBtn">
-                <BaseButton width={content.delButton.width} urlActive={content.delButton.urlActive} urlInactive={content.delButton.urlInactive} completed={completed} action={todoDelete} />
+                <BaseButton 
+                    width={content.delButton.width} 
+                    urlActive={content.delButton.urlActive} 
+                    urlInactive={content.delButton.urlInactive} 
+                    completed={completed} 
+                    action={todoDelete}
+                    type="button" />
             </div>
         </li>
     );
