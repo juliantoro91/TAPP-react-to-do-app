@@ -33,7 +33,7 @@ const StyledCard = styled.div`
     }
 `;
 
-function TodoItem({ text, completed, deleted, color, todoComplete, todoDelete }) {
+function TodoItem({ text, completed, color, todoComplete, todoDelete }) {
     return (
         <li>
             <StyledCard className="card-item" color={color} disabled={completed}>

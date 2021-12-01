@@ -16,7 +16,7 @@ function AppUI() {
         searchedTodos,
         todoComplete,
         todoDelete,
-        openModal
+        openModal,
     } = React.useContext(TodoContext);
     
     return (
@@ -32,9 +32,9 @@ function AppUI() {
                         (loading) ?
                         <Loader /> :
                         (!searchedTodos.length) ?
-                        <p>¡Crea tu primer TODO!</p> :
+                        <p>Create your first TODO!</p> :
                         searchedTodos.map(todo => 
-                            <TodoItem key={todo.text} text={todo.text} completed={todo.completed} deleted={todo.deleted} color={todo.color} todoComplete={() => todoComplete(todo.text)} todoDelete={() => todoDelete(todo.text)} />
+                            <TodoItem key={todo.text} text={todo.text} completed={todo.completed} color={todo.color} todoComplete={() => todoComplete(todo.text)} todoDelete={() => todoDelete(todo.text)} />
                             )
                 }
             </TodoList>
