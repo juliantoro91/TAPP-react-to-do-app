@@ -13,7 +13,7 @@ function TodoProvider(props) {
         loading,
         error
     } = useLocalStorage('TODOS_V1', []);
-    const [searchValue, setSearchValue] = React.useState(''); // For serach bar
+    const [searchValue, setSearchValue] = React.useState(''); // For search bar
     const [openModal, setOpenModal] = React.useState(false);
 
     // TODOS COUNTERS
@@ -60,17 +60,19 @@ function TodoProvider(props) {
     const todoAdd = (text) => {
         const newTodos = [...todos];
 
-        newTodos.push(
-            {
-                text,
-                completed: false,
-                deleted: false,
-            }
-        );
+        if (text !== "") {
+            newTodos.push(
+                {
+                    text,
+                    completed: false,
+                    deleted: false,
+                }
+            );
+        }
 
         saveTodos(newTodos);
     }
-
+    
     return (
         <TodoContext.Provider value={{
             loading,

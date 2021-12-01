@@ -22,7 +22,7 @@ function BaseButton(props) {
         urlInactive = props.urlActive;
         completed = false;
     }
-
+    
     return (
         <button type={props.type} 
             onSubmit={props.type === 'submit' ? props.action : undefined}
