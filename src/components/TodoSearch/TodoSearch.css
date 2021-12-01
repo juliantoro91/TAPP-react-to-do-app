@@ -30,6 +30,8 @@
 }
 
 .todo-search p {
+    width: 100%;
+    text-align: right;
     color: var(--white);
     padding-top: 5px;
 }

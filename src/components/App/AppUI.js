@@ -8,6 +8,7 @@ import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { Modal } from "../Modal";
 import { Loader } from "../Loader";
+import { LanguageShifter } from "../LanguageShifter";
 
 function AppUI() {
 
@@ -17,10 +18,13 @@ function AppUI() {
         todoComplete,
         todoDelete,
         openModal,
+        language,
     } = React.useContext(TodoContext);
     
     return (
         <>
+            <LanguageShifter />
+
             <TodoHeader />
             
             <TodoSearch />
@@ -28,11 +32,11 @@ function AppUI() {
             <TodoList>
                 {
                     (error) ?
-                        <p>Lo sentimos, ha ocurrido un error, vuelve a recargar la página</p> :
+                        <p>{(language) ? "We apologize, an error occurred, please reload the app" :  "Lo sentimos, ha ocurrido un error, vuelve a recargar la página"}</p> :
                         (loading) ?
                         <Loader /> :
                         (!searchedTodos.length) ?
-                        <p>Create your first TODO!</p> :
+                        <p>{(language) ? "Create your first TODO!" : "¡Crea tu primera tarjeta"}</p> :
                         searchedTodos.map(todo => 
                             <TodoItem key={todo.text} text={todo.text} completed={todo.completed} color={todo.color} todoComplete={() => todoComplete(todo.text)} todoDelete={() => todoDelete(todo.text)} />
                             )
