@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/TAPP-react-todo-app/static/css/main.3871c896.chunk.css",
+    "main.css": "/TAPP-react-todo-app/static/css/main.59ee048f.chunk.css",
     "main.js": "/TAPP-react-todo-app/static/js/main.196f148e.chunk.js",
     "main.js.map": "/TAPP-react-todo-app/static/js/main.196f148e.chunk.js.map",
     "runtime-main.js": "/TAPP-react-todo-app/static/js/runtime-main.70417832.js",
@@ -8,7 +8,7 @@
     "static/js/2.2e7f6acd.chunk.js": "/TAPP-react-todo-app/static/js/2.2e7f6acd.chunk.js",
     "static/js/2.2e7f6acd.chunk.js.map": "/TAPP-react-todo-app/static/js/2.2e7f6acd.chunk.js.map",
     "index.html": "/TAPP-react-todo-app/index.html",
-    "static/css/main.3871c896.chunk.css.map": "/TAPP-react-todo-app/static/css/main.3871c896.chunk.css.map",
+    "static/css/main.59ee048f.chunk.css.map": "/TAPP-react-todo-app/static/css/main.59ee048f.chunk.css.map",
     "static/js/2.2e7f6acd.chunk.js.LICENSE.txt": "/TAPP-react-todo-app/static/js/2.2e7f6acd.chunk.js.LICENSE.txt",
     "static/media/header-background.b0e1fb0e.jpg": "/TAPP-react-todo-app/static/media/header-background.b0e1fb0e.jpg",
     "static/media/logo.4852cb71.png": "/TAPP-react-todo-app/static/media/logo.4852cb71.png"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.70417832.js",
     "static/js/2.2e7f6acd.chunk.js",
-    "static/css/main.3871c896.chunk.css",
+    "static/css/main.59ee048f.chunk.css",
     "static/js/main.196f148e.chunk.js"
   ]
 }
