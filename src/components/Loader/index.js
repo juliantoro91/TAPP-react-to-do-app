@@ -23,12 +23,12 @@ function ItemLoader(props) {
 
 function Loader() {
   return [
-    <ItemLoader />,
-    <ItemLoader />,
-    <ItemLoader />,
-    <ItemLoader />,
-    <ItemLoader />,
-    <ItemLoader />,
+    <ItemLoader key="item-loader-1"/>,
+    <ItemLoader key="item-loader-2"/>,
+    <ItemLoader key="item-loader-3"/>,
+    <ItemLoader key="item-loader-4"/>,
+    <ItemLoader key="item-loader-5"/>,
+    <ItemLoader key="item-loader-6"/>,
   ];
 }
 

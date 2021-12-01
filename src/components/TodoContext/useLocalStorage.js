@@ -27,7 +27,7 @@ function useLocalStorage(itemName, initialValue) {
       } catch(error) {
         setError(error);
       }
-    }, 10000)
+    }, 1000)
   })
 
   // ACTIVE TODOS
