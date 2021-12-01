@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/TAPP-react-todo-app/static/css/main.b608f542.chunk.css",
-    "main.js": "/TAPP-react-todo-app/static/js/main.c5f9a2a7.chunk.js",
-    "main.js.map": "/TAPP-react-todo-app/static/js/main.c5f9a2a7.chunk.js.map",
+    "main.js": "/TAPP-react-todo-app/static/js/main.89909da9.chunk.js",
+    "main.js.map": "/TAPP-react-todo-app/static/js/main.89909da9.chunk.js.map",
     "runtime-main.js": "/TAPP-react-todo-app/static/js/runtime-main.70417832.js",
     "runtime-main.js.map": "/TAPP-react-todo-app/static/js/runtime-main.70417832.js.map",
     "static/js/2.2e7f6acd.chunk.js": "/TAPP-react-todo-app/static/js/2.2e7f6acd.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.70417832.js",
     "static/js/2.2e7f6acd.chunk.js",
     "static/css/main.b608f542.chunk.css",
-    "static/js/main.c5f9a2a7.chunk.js"
+    "static/js/main.89909da9.chunk.js"
   ]
 }
