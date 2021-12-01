@@ -23,6 +23,7 @@ function TodoForm() {
     const {
         todoAdd,
         setOpenModal,
+        language,
     } = React.useContext(TodoContext);
 
     const onChange = (event) => {
@@ -41,13 +42,13 @@ function TodoForm() {
 
     return (
         <form onSubmit={onSubmit}>
-            <label>Add a new Card</label>
+            <label>{(language) ? "Add a new Card" : "Añadir una nueva tarjeta"}</label>
             <div className="textarea-container">
                 <textarea
                     className="text-area"
                     value={newTodoValue}
                     onChange={onChange}
-                    placeholder="Todo task to be added"
+                    placeholder={(language) ? "Todo task to be added" : "Nueva actividad para ser añadida"}
                 />
             </div>
             <div className="buttons-container">

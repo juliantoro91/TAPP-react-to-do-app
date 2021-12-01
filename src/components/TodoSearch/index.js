@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { CurvedContainer } from "../CurvedContainer";
 import './TodoSearch.css';
 import icon from "../../images/search-icon.png";
@@ -12,9 +12,6 @@ const content = {
         url: icon,
         alt: 'Search icon',
     },
-    input: {
-        placeholder: 'Search card...',
-    },
 }
 
 
@@ -22,8 +19,10 @@ function TodoSearch() {
 
     const { searchValue,
         setSearchValue,
-        matchedSearchLabel } = useContext(TodoContext);
-
+        matchedSearchLabel,
+        language,
+    } = React.useContext(TodoContext);
+    
     const onSearchValueChange = (event) => {
         setSearchValue(event.target.value);
     }
@@ -40,7 +39,7 @@ function TodoSearch() {
         <CurvedContainer height={content.height} displacement={content.displacement} color={content.color}>
             <section className="todo-search">
                 <img src={content.icon.url} alt={content.icon.alt} />
-                <input placeholder={content.input.placeholder} value={searchValue} onChange={onSearchValueChange} />
+                <input placeholder={(language) ? "Search card..." : "Buscar tarjeta..."} value={searchValue} onChange={onSearchValueChange} />
                 <p>{ verifyCoincidences(matchedSearchLabel) }</p>
             </section>
         </CurvedContainer>
