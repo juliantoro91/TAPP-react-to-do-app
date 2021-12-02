@@ -1,3 +1,4 @@
+import { render } from "@testing-library/react";
 import React from "react";
 import { CurvedContainer } from "../CurvedContainer";
 import './TodoList.css';
@@ -8,16 +9,28 @@ const content = {
     color: '--white',
 }
 
-function TodoList({ children, language }) {
+function TodoList(props) {
+
+    const renderFunc = props.render || props.children;
 
     return (
         <CurvedContainer height={content.height} displacement={content.displacement} color={content.color}>
-            <h3>{(language) ? "Your actual cards" : "Tus tarjetas actuales"}</h3>
-            <section id="todo-cards-list">
+            <h3>{(props.language) ? "Your actual cards" : "Tus tarjetas actuales"}</h3>
+            <section className="todolist-container">
+
+                {props.error && props.onError()}
+                {props.loading && props.onLoading()}
+                {(!props.loading && !props.totalTodos) && props.onEmptyTodos()}
+                {(!!props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchResults(props.searchText)}
+
+                {/* {props.searchedTodos.map(props.render)} */}
+                {props.searchedTodos.map(renderFunc)}
+            </section>
+            {/* <section id="todo-cards-list">
                 <ul className="cards-list">
                     {children}
                 </ul>
-            </section>
+            </section> */}
         </CurvedContainer>
     );
 }

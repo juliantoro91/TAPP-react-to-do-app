@@ -9,7 +9,7 @@ function useTodos() {
         item: todos,
         saveItem: saveTodos,
         loading,
-        error
+        error,
     } = useLocalStorage('TODOS_V1', []);
     const [searchValue, setSearchValue] = React.useState(''); // For search bar
     const [openModal, setOpenModal] = React.useState(false);
@@ -20,6 +20,7 @@ function useTodos() {
         completedTasks: todos.filter(todo => (todo.completed)).length,
         totalTasks: todos.length,
     }
+    const totalTodos = todos.length;
 
     // SEARCH FILTER LOGIC
     const searchedTodos = todos.filter(
@@ -80,6 +81,7 @@ function useTodos() {
         searchValue,
         setSearchValue,
         matchedSearchLabel,
+        totalTodos,
         searchedTodos,
         todoComplete,
         todoDelete,

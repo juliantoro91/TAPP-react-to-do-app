@@ -8,10 +8,13 @@ import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { Modal } from "../Modal";
-import { Loader } from "../Loader";
 import { LanguageShifter } from "../LanguageShifter";
 import { TodoCounter } from "../TodoCounter";
 import { TodoForm } from "../TodoForm";
+import { TodosError } from "../TodosError";
+import { TodosLoading } from "../TodosLoading";
+import { EmptyTodos } from "../EmptyTodos";
+import { EmptySearch } from "../EmptySearch";
 
 // COMPONENT
 function App() {
@@ -23,6 +26,7 @@ function App() {
     searchValue,
     setSearchValue,
     matchedSearchLabel,
+    totalTodos,
     searchedTodos,
     todoComplete,
     todoDelete,
@@ -42,19 +46,63 @@ function App() {
       
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} matchedSearchLabel={matchedSearchLabel} language={language} />
       
-      <TodoList language={language}>
-          {
-              (error) ?
-                  <p>{(language) ? "We apologize, an error occurred, please reload the app" :  "Lo sentimos, ha ocurrido un error, vuelve a recargar la página"}</p> :
-                  (loading) ?
-                  <Loader quantity={6} /> :
-                  (!searchedTodos.length) ?
-                  <p>{(language) ? "Create your first TODO!" : "¡Crea tu primera tarjeta"}</p> :
-                  searchedTodos.map(todo => 
-                      <TodoItem key={todo.text} text={todo.text} completed={todo.completed} color={todo.color} todoComplete={() => todoComplete(todo.text)} todoDelete={() => todoDelete(todo.text)} />
-                      )
-          }
+      <TodoList
+        language={language}
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
+        searchText={searchValue}
+        onError={error => <TodosError error={error} language={language} />}
+        onLoading={() => <TodosLoading quantity={6} />}
+        onEmptyTodos={() => <EmptyTodos language={language} />}
+        onEmptySearchResults={(searchText) => <EmptySearch searchText={searchText} language={language} />}
+        // render={todo => (
+        //   <TodoItem 
+        //     key={todo.text} 
+        //     text={todo.text} 
+        //     completed={todo.completed} 
+        //     color={todo.color} 
+        //     todoComplete={() => todoComplete(todo.text)} 
+        //     todoDelete={() => todoDelete(todo.text)}
+        //   />
+        //   )
+        // }
+      >
+        {
+          todo => (
+            <TodoItem 
+              key={todo.text} 
+              text={todo.text} 
+              completed={todo.completed} 
+              color={todo.color} 
+              todoComplete={() => todoComplete(todo.text)} 
+              todoDelete={() => todoDelete(todo.text)}
+            />
+            )
+        }
       </TodoList>
+
+      {/*<TodoList language={language}>
+         {
+           (error) ?
+             <p>{(language) ? "We apologize, an error occurred, please reload the app" :  "Lo sentimos, ha ocurrido un error, vuelve a recargar la página"}</p> :
+           (loading) ?
+             <Loader quantity={6} /> :
+           (!searchedTodos.length) ?
+             <p>{(language) ? "Create your first TODO!" : "¡Crea tu primera tarjeta"}</p> :
+           searchedTodos.map(todo => 
+             <TodoItem 
+               key={todo.text} 
+               text={todo.text} 
+               completed={todo.completed} 
+               color={todo.color} 
+               todoComplete={() => todoComplete(todo.text)} 
+               todoDelete={() => todoDelete(todo.text)} 
+             />
+           )
+         }
+       </TodoList> */}
 
       <CreateTodoButton setOpenModal={setOpenModal}/>
 

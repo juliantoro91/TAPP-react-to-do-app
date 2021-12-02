@@ -1,8 +1,18 @@
 h3 {
+    font-size: var(--lg);
+    color: var(--primary-color);
     margin-bottom: 25px;
 }
 
 .cards-list {
     list-style: none;
+    padding-bottom: 80px;
+}
+
+li {
+    list-style: none;
+}
+
+.todolist-container {
     padding-bottom: 80px;
 }

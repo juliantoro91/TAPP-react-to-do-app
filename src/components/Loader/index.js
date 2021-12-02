@@ -30,7 +30,7 @@ function ItemLoader(props) {
 
 function Loader({ quantity }) {
   
-  let keys = new Array();
+  let keys = [];
   for(let i = 0; i < quantity; i++) {
     keys.push("item-loader-"+i);
   }
