@@ -1,0 +1,36 @@
+li {
+    position: relative;
+}
+
+.loader-card-item {
+    --text-width-factor: 65%;
+    --gap-button-text: 20px;
+    --card-item-height: 80px;
+    --card-padding: 15px;
+    --button-width: 45px;
+    width: var(--content-width);
+    min-width: var(--min-content-width);
+    max-width: var(--max-content-width);
+    height: var(--card-item-height);
+    border-radius: var(--card-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--card-padding);
+    padding: var(--card-padding);
+    border: 1px solid var(--light-gray)
+}
+
+.loader-card-item p {
+    width: calc(var(--content-width) - var(--button-width) - var(--gap-button-text) - 2 * var(--card-padding));
+    min-width: calc(var(--min-content-width) - var(--button-width) - var(--gap-button-text) - 2 * var(--card-padding));
+    max-width: calc(var(--max-content-width) - var(--button-width) - var(--gap-button-text) - 2 * var(--card-padding));
+    color: var(--medium-gray);
+
+}
+
+.deleteBtn {
+    position: absolute;
+    right: -6px;
+    top: -6px;
+}

@@ -1,6 +1,7 @@
 // IMPORT SECTION
 import React from "react";
 import './App.css';
+import { useLanguage } from "../LanguageContext";
 import { useTodos } from "./useTodos";
 import { TodoHeader } from "../TodoHeader";
 import { TodoSearch } from "../TodoSearch";
@@ -34,17 +35,27 @@ function App() {
     openModal,
     setOpenModal,
     language,
-    setLanguage,
+    setLanguage
   } = useTodos();
+
+  // const {
+  //   language,
+  //   saveLanguage
+  // } = useLanguage();
 
   return (
     <>
       <TodoHeader
-          languageShifter={<LanguageShifter language={language} setLanguage={setLanguage} />}
+          languageShifter={<LanguageShifter language={language} saveLanguage={setLanguage} />}
           todoCounter={<TodoCounter tasksState={tasksState} language={language} />}
       />
       
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} matchedSearchLabel={matchedSearchLabel} language={language} />
+      <TodoSearch
+        searchValue={searchValue} 
+        setSearchValue={setSearchValue} 
+        matchedSearchLabel={matchedSearchLabel} 
+        loading={loading}
+        language={language} />
       
       <TodoList
         language={language}
@@ -54,20 +65,20 @@ function App() {
         totalTodos={totalTodos}
         searchText={searchValue}
         onError={error => <TodosError error={error} language={language} />}
-        onLoading={() => <TodosLoading quantity={6} />}
+        onLoading={() => <TodosLoading language={language} />}
         onEmptyTodos={() => <EmptyTodos language={language} />}
         onEmptySearchResults={(searchText) => <EmptySearch searchText={searchText} language={language} />}
-        // render={todo => (
-        //   <TodoItem 
-        //     key={todo.text} 
-        //     text={todo.text} 
-        //     completed={todo.completed} 
-        //     color={todo.color} 
-        //     todoComplete={() => todoComplete(todo.text)} 
-        //     todoDelete={() => todoDelete(todo.text)}
-        //   />
-        //   )
-        // }
+        render={todo => (
+          <TodoItem 
+            key={todo.text} 
+            text={todo.text} 
+            completed={todo.completed} 
+            color={todo.color} 
+            todoComplete={() => todoComplete(todo.text)} 
+            todoDelete={() => todoDelete(todo.text)}
+          />
+          )
+        }
       >
         {
           todo => (

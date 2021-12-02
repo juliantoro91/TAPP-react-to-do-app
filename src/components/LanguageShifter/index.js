@@ -1,10 +1,10 @@
 import React from "react";
 import './LanguageShifter.css';
 
-function LanguageShifter({ language, setLanguage }) {
+function LanguageShifter({ language, saveLanguage }) {
 
     const onChangeLanguage = () => {
-        setLanguage(prevState => !prevState);
+        saveLanguage(prevState => !prevState);
     }
 
     const setLanguageText = () => {
