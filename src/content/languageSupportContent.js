@@ -53,7 +53,7 @@ const languageSupportContent = {
             one: "Cargando...",
         },
         EmptyTodos: {
-            one: "¡Crea tu primera tarjeta",
+            one: "¡Crea tu primera tarjeta!",
         },
         EmptySearch: {
             one: "No hay resultados para ",
@@ -62,7 +62,39 @@ const languageSupportContent = {
             one: "Añadir una nueva tarjeta",
             two: "Nueva actividad para ser añadida",
         }
-    }
+    },
+    Portuguese: {
+        LanguageShifter: {
+            text: "Portuguese",
+        },
+        TodoCounter: {
+            one: "Você completou ",
+            two: " de ",
+            three: " tarefa",
+        },
+        TodoSearch: {
+            one: "Pesquisa cartão...",
+        },
+        TodoList: {
+            one: "Seus cartões reais",
+        },
+        TodosError: {
+            one: "Desculpe, ocorreu um erro, recarregue o aplicativo",
+        },
+        TodosLoading: {
+            one: "Carregando...",
+        },
+        EmptyTodos: {
+            one: "Crie seu primeiro cartão!",
+        },
+        EmptySearch: {
+            one: "Nenhum resultado para ",
+        },
+        TodoForm: {
+            one: "Adicionar um novo cartão",
+            two: "Nova atividade a ser adicionada",
+        }
+    },
 }
 
 export { languageSupportContent };
