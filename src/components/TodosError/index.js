@@ -1,11 +1,9 @@
 import React from "react";
 
-function TodosError({ error, language }) {
+function TodosError({ error, languageSupport }) {
     return (
         <p>
-            {(language) ? 
-            "We apologize, an error occurred, please reload the app" :  
-            "Lo sentimos, ha ocurrido un error, vuelve a recargar la página"}
+            {languageSupport.one}
         </p>
     );
 }

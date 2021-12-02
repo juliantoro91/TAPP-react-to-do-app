@@ -1,11 +1,9 @@
 import React from "react";
 
-function EmptyTodos({ language }) {
+function EmptyTodos({ languageSupport }) {
     return (
         <p>
-            {(language) ? 
-            "Create your first TODO!" : 
-            "¡Crea tu primera tarjeta"}
+            {languageSupport.one}
         </p>
     );
 }

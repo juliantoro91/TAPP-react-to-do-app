@@ -1,12 +1,10 @@
 import React from "react";
 
-function TodoCounter( { tasksState, language }) {
+function TodoCounter( { tasksState, languageSupport }) {
 
     function verifyPlural(number) {
         if (typeof(number) === "number") {
-            let word = '';
-
-            (language) ? word = " task" : word = " tarea";
+            let word = languageSupport.three;
 
             if (number !== 1) { word = word+'s' }
 
@@ -16,11 +14,7 @@ function TodoCounter( { tasksState, language }) {
     }
 
     function setCounterLabel() {
-        if (language) {
-            return "You've completed "+tasksState.completedTasks+" of "+verifyPlural(tasksState.totalTasks);
-        } else {
-            return "Has completado "+tasksState.completedTasks+" de "+verifyPlural(tasksState.totalTasks);
-        }
+        return languageSupport.one + tasksState.completedTasks + languageSupport.two + verifyPlural(tasksState.totalTasks);
     }
 
     return (

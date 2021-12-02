@@ -1,7 +1,7 @@
 // IMPORT SECTION
 import React from "react";
 import './App.css';
-import { useLanguage } from "../LanguageContext";
+import { useLanguage } from "./useLanguage";
 import { useTodos } from "./useTodos";
 import { TodoHeader } from "../TodoHeader";
 import { TodoSearch } from "../TodoSearch";
@@ -16,6 +16,7 @@ import { TodosError } from "../TodosError";
 import { TodosLoading } from "../TodosLoading";
 import { EmptyTodos } from "../EmptyTodos";
 import { EmptySearch } from "../EmptySearch";
+import { languageSupportContent } from "../../content/languageSupportContent";
 
 // COMPONENT
 function App() {
@@ -34,20 +35,22 @@ function App() {
     todoAdd,
     openModal,
     setOpenModal,
-    language,
-    setLanguage
   } = useTodos();
 
-  // const {
-  //   language,
-  //   saveLanguage
-  // } = useLanguage();
+  const {
+    actualLanguage,
+    saveLanguage
+  } = useLanguage();
+
+  //const language = 'English';
+
+  const languageSupport = languageSupportContent[actualLanguage];
 
   return (
     <>
       <TodoHeader
-          languageShifter={<LanguageShifter language={language} saveLanguage={setLanguage} />}
-          todoCounter={<TodoCounter tasksState={tasksState} language={language} />}
+          languageShifter={<LanguageShifter languageSupport={languageSupport.LanguageShifter} saveLanguage={saveLanguage} />}
+          todoCounter={<TodoCounter tasksState={tasksState} languageSupport={languageSupport.TodoCounter} />}
       />
       
       <TodoSearch
@@ -55,19 +58,19 @@ function App() {
         setSearchValue={setSearchValue} 
         matchedSearchLabel={matchedSearchLabel} 
         loading={loading}
-        language={language} />
+        languageSupport={languageSupport.TodoSearch} />
       
       <TodoList
-        language={language}
+        languageSupport={languageSupport.TodoList}
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
         totalTodos={totalTodos}
         searchText={searchValue}
-        onError={error => <TodosError error={error} language={language} />}
-        onLoading={() => <TodosLoading language={language} />}
-        onEmptyTodos={() => <EmptyTodos language={language} />}
-        onEmptySearchResults={(searchText) => <EmptySearch searchText={searchText} language={language} />}
+        onError={error => <TodosError error={error} language={languageSupport.TodosError} />}
+        onLoading={() => <TodosLoading languageSupport={languageSupport.TodosLoading} />}
+        onEmptyTodos={() => <EmptyTodos languageSupport={languageSupport.EmptyTodos} />}
+        onEmptySearchResults={(searchText) => <EmptySearch searchText={searchText} languageSupport={languageSupport.EmptySearch} />}
         render={todo => (
           <TodoItem 
             key={todo.text} 
@@ -119,7 +122,7 @@ function App() {
 
       {!!openModal &&
           <Modal>
-              <TodoForm todoAdd={todoAdd} setOpenModal={setOpenModal} language={language} />
+              <TodoForm todoAdd={todoAdd} setOpenModal={setOpenModal} languageSupport={languageSupport.TodoForm} />
           </Modal>
       }
     </>

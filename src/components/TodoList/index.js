@@ -15,7 +15,7 @@ function TodoList(props) {
 
     return (
         <CurvedContainer height={content.height} displacement={content.displacement} color={content.color}>
-            <h3>{(props.language) ? "Your actual cards" : "Tus tarjetas actuales"}</h3>
+            <h3>{props.languageSupport.one}</h3>
             <section className="todolist-container">
 
                 {props.error && props.onError()}

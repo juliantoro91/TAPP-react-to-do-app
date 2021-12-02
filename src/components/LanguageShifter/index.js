@@ -1,23 +1,15 @@
 import React from "react";
 import './LanguageShifter.css';
 
-function LanguageShifter({ language, saveLanguage }) {
+function LanguageShifter({ languageSupport, saveLanguage }) {
 
     const onChangeLanguage = () => {
-        saveLanguage(prevState => !prevState);
-    }
-
-    const setLanguageText = () => {
-        if (language) {
-            return "Spanish";
-        } else {
-            return "English";
-        }
+        saveLanguage();
     }
 
     return (
         <button className="language-shifter-button"
-        onClick={onChangeLanguage}>{setLanguageText()}</button>
+        onClick={onChangeLanguage}>{languageSupport.text}</button>
     );
 }
 

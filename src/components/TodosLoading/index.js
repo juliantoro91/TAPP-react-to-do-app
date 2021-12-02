@@ -1,9 +1,9 @@
 import React from "react";
 import { TodoItemLoader } from "../TodoItemLoader";
 
-function TodosLoading({ language }) {
+function TodosLoading({ languageSupport }) {
     return (
-        <TodoItemLoader language={language} />
+        <TodoItemLoader languageSupport={languageSupport} />
     );
 }
 

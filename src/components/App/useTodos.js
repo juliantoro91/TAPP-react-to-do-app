@@ -13,7 +13,7 @@ function useTodos() {
     } = useLocalStorage('TODOS_V1', []);
     const [searchValue, setSearchValue] = React.useState(''); // For search bar
     const [openModal, setOpenModal] = React.useState(false);
-    const [language, setLanguage] = React.useState(true); // TRUE is English / FALSE is Spanish
+    // const {language, saveLanguage} = useLanguage(); // TRUE is English / FALSE is Spanish
 
     // TODOS COUNTERS
     const tasksState = {
@@ -26,7 +26,8 @@ function useTodos() {
     const searchedTodos = todos.filter(
         todo => (todo.text.toLowerCase().includes(searchValue.toLowerCase()))); // To filter todos by search criteria
     
-    const matchedSearchLabelText = (language) ? " coincidences" : " coincidencias"
+    const matchedSearchLabelText = "test";
+    //(language) ? " coincidences" : " coincidencias"
     const matchedSearchLabel = searchedTodos.length + matchedSearchLabelText; // To update search side label
 
     // COLOR ASIGNER
@@ -88,8 +89,6 @@ function useTodos() {
         todoAdd,
         openModal,
         setOpenModal,
-        language,
-        setLanguage
     }
 }
 

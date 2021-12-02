@@ -1,11 +1,9 @@
 import React from "react";
 
-function EmptySearch({ language, searchText }) {
+function EmptySearch({ languageSupport, searchText }) {
     return (
         <p>
-            {(language) ? 
-            "There is no results for " + searchText : 
-            "No hay resultados para " + searchText }
+            {languageSupport.one + searchText }
         </p>
     );
 }

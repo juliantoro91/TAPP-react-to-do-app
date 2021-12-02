@@ -2,7 +2,7 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 import './TodoItemLoader.css';
 
-function TodoItemLoader({ language }) {
+function TodoItemLoader({ languageSupport }) {
 
     let loaderDoneWidth = 45;
     let loaderDelWidth = 22;
@@ -21,7 +21,7 @@ function TodoItemLoader({ language }) {
                     <circle cx={loaderDoneWidth/2} cy={loaderDoneWidth/2} r={loaderDoneWidth/2} />
                 </ContentLoader>
 
-                <p>{(language) ? "Loading..." : "Cargando..."}</p>
+                <p>{languageSupport.one}</p>
             </div>
             
             <div className="deleteBtn">
