@@ -1,5 +1,4 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import { BaseButton } from "../BaseButton";
 import './CreateTodoButton.css';
 import AddIcon from '../../images/add-icon.png';
@@ -12,10 +11,7 @@ const content = {
     },
 }
 
-function CreateTodoButton() {
-    const {
-        setOpenModal
-    } = React.useContext(TodoContext);
+function CreateTodoButton({ setOpenModal }) {
 
     const CreateTodo = () => {
         setOpenModal(prevState => !prevState);

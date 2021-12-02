@@ -2,9 +2,7 @@ import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { alternateColorGenerator } from "../AlternateColorGenerator/AlternateColorGenerator";
 
-const TodoContext = React.createContext();
-
-function TodoProvider(props) {
+function useTodos() {
 
     // STATES
     const {
@@ -75,26 +73,22 @@ function TodoProvider(props) {
         saveTodos(newTodos);
     }
     
-    return (
-        <TodoContext.Provider value={{
-            loading,
-            error,
-            tasksState,
-            searchValue,
-            setSearchValue,
-            matchedSearchLabel,
-            searchedTodos,
-            todoComplete,
-            todoDelete,
-            todoAdd,
-            openModal,
-            setOpenModal,
-            language,
-            setLanguage
-        }}>
-            {props.children}
-        </TodoContext.Provider>
-    )
+    return {
+        loading,
+        error,
+        tasksState,
+        searchValue,
+        setSearchValue,
+        matchedSearchLabel,
+        searchedTodos,
+        todoComplete,
+        todoDelete,
+        todoAdd,
+        openModal,
+        setOpenModal,
+        language,
+        setLanguage
+    }
 }
 
-export { TodoContext, TodoProvider };
+export { useTodos };

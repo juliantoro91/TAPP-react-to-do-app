@@ -3,33 +3,43 @@ import ContentLoader from "react-content-loader";
 
 function ItemLoader(props) {
 
+  let width = 350;
+  const height = 80;
+
+  // React.useEffect(() => {
+  //   width = document.getElementById('todo-cards-list').offsetWidth;
+  // },[])
+
   return (
     <ContentLoader 
       speed={2}
-      width={350}
-      height={80}
-      viewBox="0 0 350 80"
+      width={width}
+      height={height}
+      viewBox={"0 0 "+width+" "+height}
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"
       {...props}
     >
-      <circle cx="37.5" cy="47.5" r="22.5" />
-      <rect x="80" y="30" rx="3" ry="3" width="250" height="10" /> 
-      <rect x="80" y="50" rx="3" ry="3" width="250" height="10" /> 
-      <circle cx="330" cy="10" r="11" />
+      <circle cx="37.5" cy="37.5" r="22.5" />
+      <rect x="80" y="30" rx="3" ry="3" width={width-45-20-30} height="10" /> 
+      <rect x="80" y="50" rx="3" ry="3" width={width-45-20-30} height="10" /> 
+      <circle cx={width-11} cy="10" r="11" />
     </ContentLoader>
   );
 }
 
-function Loader() {
-  return [
-    <ItemLoader key="item-loader-1"/>,
-    <ItemLoader key="item-loader-2"/>,
-    <ItemLoader key="item-loader-3"/>,
-    <ItemLoader key="item-loader-4"/>,
-    <ItemLoader key="item-loader-5"/>,
-    <ItemLoader key="item-loader-6"/>,
-  ];
+function Loader({ quantity }) {
+  
+  let keys = new Array();
+  for(let i = 0; i < quantity; i++) {
+    keys.push("item-loader-"+i);
+  }
+
+  return (
+    keys.map((key) => (
+      <ItemLoader key={key} />  
+    ))
+  );
 }
 
 export { Loader };

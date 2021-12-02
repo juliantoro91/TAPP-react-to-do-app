@@ -36,6 +36,7 @@
   --min-content-width: calc( var(--min-width) - ( 2 * var(--base-radius) * var(--padding-factor)));
   --max-content-width: calc( var(--max-width) - ( 2 * var(--base-radius) * var(--padding-factor)));
   --padding-factor: 0.75;
+  --header-size-factor: calc(780/900);
 }
 
 * {

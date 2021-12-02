@@ -1,8 +1,5 @@
 .language-shifter-button {
     color: var(--white);
     text-decoration: underline;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
+    margin: 10px;
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import { CurvedContainer } from "../CurvedContainer";
 import './TodoList.css';
 
@@ -9,18 +8,14 @@ const content = {
     color: '--white',
 }
 
-function TodoList(props) {
-
-    const {
-        language,
-    } = React.useContext(TodoContext);
+function TodoList({ children, language }) {
 
     return (
         <CurvedContainer height={content.height} displacement={content.displacement} color={content.color}>
             <h3>{(language) ? "Your actual cards" : "Tus tarjetas actuales"}</h3>
-            <section>
+            <section id="todo-cards-list">
                 <ul className="cards-list">
-                    {props.children}
+                    {children}
                 </ul>
             </section>
         </CurvedContainer>

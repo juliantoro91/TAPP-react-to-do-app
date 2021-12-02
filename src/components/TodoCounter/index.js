@@ -1,11 +1,6 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 
-function TodoCounter() {
-
-    const { tasksState,
-        language,
-        } = React.useContext(TodoContext);
+function TodoCounter( { tasksState, language }) {
 
     function verifyPlural(number) {
         if (typeof(number) === "number") {

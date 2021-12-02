@@ -1,12 +1,8 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import './LanguageShifter.css';
 
-function LanguageShifter() {
-    const { language,
-        setLanguage } = React.useContext(TodoContext);
+function LanguageShifter({ language, setLanguage }) {
 
-    
     const onChangeLanguage = () => {
         setLanguage(prevState => !prevState);
     }

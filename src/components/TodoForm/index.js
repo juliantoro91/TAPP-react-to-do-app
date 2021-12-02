@@ -1,5 +1,4 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import { BaseButton } from "../BaseButton";
 import './TodoForm.css';
 import AcceptIcon from '../../images/accept-newTodo-icon.png';
@@ -16,15 +15,9 @@ const content = {
     }
 }
 
-function TodoForm() {
+function TodoForm({ todoAdd, setOpenModal, language }) {
 
     const [newTodoValue, setNewTodoValue] = React.useState('');
-
-    const {
-        todoAdd,
-        setOpenModal,
-        language,
-    } = React.useContext(TodoContext);
 
     const onChange = (event) => {
         setNewTodoValue(event.target.value);
