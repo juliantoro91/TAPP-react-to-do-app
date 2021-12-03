@@ -11,11 +11,13 @@ const content = {
 
 function TodoList(props) {
 
+    const textContent = props.languageSupport.TodoList;
+
     const renderFunc = props.render || props.children;
 
     return (
         <CurvedContainer height={content.height} displacement={content.displacement} color={content.color}>
-            <h3>{props.languageSupport.one}</h3>
+            <h3>{textContent.one}</h3>
             <section className="todolist-container">
 
                 {props.error && props.onError()}

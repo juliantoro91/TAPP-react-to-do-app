@@ -14,7 +14,7 @@ function TodoItemLoader({ languageSupport }) {
                     speed={2}
                     width={loaderDoneWidth}
                     height={loaderDoneWidth}
-                    viewBox={"0 0 "+{loaderDoneWidth}+" "+{loaderDoneWidth}}
+                    viewBox={"0 0 "+loaderDoneWidth+" "+loaderDoneWidth}
                     backgroundColor="#EEEEEE"
                     foregroundColor="#C2C2C2"
                 >
@@ -29,7 +29,7 @@ function TodoItemLoader({ languageSupport }) {
                     speed={2}
                     width={loaderDelWidth}
                     height={loaderDelWidth}
-                    viewBox={"0 0 "+{loaderDelWidth}+" "+{loaderDelWidth}}
+                    viewBox={"0 0 "+loaderDelWidth+" "+loaderDelWidth}
                     backgroundColor="#f3f3f3"
                     foregroundColor="#ecebeb"
                 >

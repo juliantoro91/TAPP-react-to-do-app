@@ -8,6 +8,8 @@
 
 .header-background {
   width: 100%;
+  min-width: var(--min-width);
+  max-width: var(--max-width);
   object-fit: cover;
   position: absolute;
   z-index: 1;

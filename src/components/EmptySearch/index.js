@@ -1,9 +1,12 @@
 import React from "react";
 
 function EmptySearch({ languageSupport, searchText }) {
+
+    const textContent = languageSupport.EmptySearch;
+
     return (
         <p>
-            {languageSupport.one + searchText }
+            {textContent.one + searchText }
         </p>
     );
 }

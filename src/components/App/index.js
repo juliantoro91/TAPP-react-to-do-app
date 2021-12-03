@@ -49,8 +49,15 @@ function App() {
   return (
     <>
       <TodoHeader
-          languageShifter={<LanguageShifter languageSupport={languageSupport.LanguageShifter} saveLanguage={saveLanguage} />}
-          todoCounter={<TodoCounter tasksState={tasksState} languageSupport={languageSupport.TodoCounter} />}
+        loading={loading}
+        languageSupport={languageSupport}
+        languageShifter={
+          <LanguageShifter
+            saveLanguage={saveLanguage} />}
+        todoCounter={
+          <TodoCounter
+            tasksState={tasksState}
+          />}
       />
       
       <TodoSearch
@@ -58,19 +65,19 @@ function App() {
         setSearchValue={setSearchValue} 
         matchedSearchLabel={matchedSearchLabel} 
         loading={loading}
-        languageSupport={languageSupport.TodoSearch} />
+        languageSupport={languageSupport} />
       
       <TodoList
-        languageSupport={languageSupport.TodoList}
+        languageSupport={languageSupport}
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
         totalTodos={totalTodos}
         searchText={searchValue}
-        onError={error => <TodosError error={error} language={languageSupport.TodosError} />}
-        onLoading={() => <TodosLoading languageSupport={languageSupport.TodosLoading} />}
-        onEmptyTodos={() => <EmptyTodos languageSupport={languageSupport.EmptyTodos} />}
-        onEmptySearchResults={(searchText) => <EmptySearch searchText={searchText} languageSupport={languageSupport.EmptySearch} />}
+        onError={error => <TodosError error={error} language={languageSupport} />}
+        onLoading={() => <TodosLoading languageSupport={languageSupport} />}
+        onEmptyTodos={() => <EmptyTodos languageSupport={languageSupport} />}
+        onEmptySearchResults={(searchText) => <EmptySearch searchText={searchText} languageSupport={languageSupport} />}
         render={todo => (
           <TodoItem 
             key={todo.text} 
@@ -122,7 +129,11 @@ function App() {
 
       {!!openModal &&
           <Modal>
-              <TodoForm todoAdd={todoAdd} setOpenModal={setOpenModal} languageSupport={languageSupport.TodoForm} />
+              <TodoForm 
+                todoAdd={todoAdd} 
+                setOpenModal={setOpenModal} 
+                languageSupport={languageSupport} 
+              />
           </Modal>
       }
     </>

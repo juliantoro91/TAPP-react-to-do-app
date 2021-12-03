@@ -17,6 +17,8 @@ const content = {
 
 function TodoForm({ todoAdd, setOpenModal, languageSupport }) {
 
+    const textContent = languageSupport.TodoForm;
+
     const [newTodoValue, setNewTodoValue] = React.useState('');
 
     const onChange = (event) => {
@@ -35,13 +37,13 @@ function TodoForm({ todoAdd, setOpenModal, languageSupport }) {
 
     return (
         <form onSubmit={onSubmit}>
-            <label>{languageSupport.one}</label>
+            <label>{textContent.one}</label>
             <div className="textarea-container">
                 <textarea
                     className="text-area"
                     value={newTodoValue}
                     onChange={onChange}
-                    placeholder={languageSupport.two}
+                    placeholder={textContent.two}
                 />
             </div>
             <div className="buttons-container">

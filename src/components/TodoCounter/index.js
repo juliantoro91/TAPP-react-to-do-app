@@ -1,10 +1,14 @@
 import React from "react";
+import styled from "styled-components";
+import './TodoCounter.css'
 
-function TodoCounter( { tasksState, languageSupport }) {
+function TodoCounter( { tasksState, loading, languageSupport }) {
+
+    const textContent = languageSupport.TodoCounter;
 
     function verifyPlural(number) {
         if (typeof(number) === "number") {
-            let word = languageSupport.three;
+            let word = textContent.three;
 
             if (number !== 1) { word = word+'s' }
 
@@ -14,11 +18,13 @@ function TodoCounter( { tasksState, languageSupport }) {
     }
 
     function setCounterLabel() {
-        return languageSupport.one + tasksState.completedTasks + languageSupport.two + verifyPlural(tasksState.totalTasks);
+        return textContent.one + tasksState.completedTasks + textContent.two + verifyPlural(tasksState.totalTasks);
     }
 
     return (
-        <h2>{setCounterLabel()}</h2>
+        <h2 className={`${!!loading && "TodoCounter--loading"}`}>
+            {setCounterLabel()}
+        </h2>
     );
 }
 

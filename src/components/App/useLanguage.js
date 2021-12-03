@@ -16,7 +16,7 @@ function useLanguage() {
         } else {
             setLanguage(JSON.parse(localStorageLanguage));
         }
-    })
+    },[language])
 
     const saveLanguage = () => {
         const languages = Object.keys(languageSupportContent);

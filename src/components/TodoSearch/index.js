@@ -15,6 +15,8 @@ const content = {
 
 
 function TodoSearch({ searchValue, setSearchValue, matchedSearchLabel, loading, languageSupport }) {
+
+    const textContent = languageSupport.TodoSearch;
     
     const onSearchValueChange = (event) => {
         setSearchValue(event.target.value);
@@ -33,7 +35,7 @@ function TodoSearch({ searchValue, setSearchValue, matchedSearchLabel, loading, 
             <section className="todo-search">
                 <img src={content.icon.url} alt={content.icon.alt} />
                 <input 
-                    placeholder={languageSupport.one} 
+                    placeholder={textContent.one} 
                     value={searchValue} 
                     onChange={onSearchValueChange} 
                     disabled={loading}
