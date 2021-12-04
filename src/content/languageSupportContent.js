@@ -10,6 +10,7 @@ const languageSupportContent = {
         },
         TodoSearch: {
             one: "Search card...",
+            two: " coincidences",
         },
         TodoList: {
             one: "Your actual cards",
@@ -25,7 +26,6 @@ const languageSupportContent = {
         },
         EmptySearch: {
             one: "There is no results for ",
-            two: " coincidences",
         },
         TodoForm: {
             one: "Add a new Card",
@@ -47,6 +47,7 @@ const languageSupportContent = {
         },
         TodoSearch: {
             one: "Buscar tarjeta...",
+            two: " coincidencias",
         },
         TodoList: {
             one: "Tus tarjetas actuales",
@@ -62,7 +63,6 @@ const languageSupportContent = {
         },
         EmptySearch: {
             one: "No hay resultados para ",
-            two: " coincidencias",
         },
         TodoForm: {
             one: "Añadir una nueva tarjeta",
@@ -84,6 +84,7 @@ const languageSupportContent = {
         },
         TodoSearch: {
             one: "Pesquisa cartão...",
+            two: " coincidencias",
         },
         TodoList: {
             one: "Seus cartões reais",
