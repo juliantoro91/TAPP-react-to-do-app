@@ -1,9 +1,19 @@
 import React from "react";
 import './ChangeAlert.css';
-import { withStorageListener } from "./withStorageListener";
+//import { withStorageListener } from "./withStorageListener";
+import { useStorageListener } from './useStorageListener';
 import { Modal } from "../Modal";
 
-function ChangeAlert({ languageSupport, show, toggleShow }) {
+//function ChangeAlert({ languageSupport, show, toggleShow }) {
+function ChangeAlert({ languageSupport,
+    setOpenModal,
+    setModalType,
+    sincronize }) {
+
+    const {
+        show,
+        toggleShow,
+    } = useStorageListener(setOpenModal, setModalType, sincronize);
     
     const textContent = languageSupport.ChangeAlert;
 
@@ -23,7 +33,7 @@ function ChangeAlert({ languageSupport, show, toggleShow }) {
     }
 }
     
+//const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert);
+//export { ChangeAlertWithStorageListener };
 
-const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert);
-
-export { ChangeAlertWithStorageListener };
+export { ChangeAlert };
