@@ -23,14 +23,13 @@ function useLocalStorage(itemName, initialValue) {
         }
         
         //throw new Error();
-
         setItem(parsedItem);
         setLoading(false);
       } catch(error) {
         setError(error);
       }
-    }, 1000)
-  })
+    }, 3000)
+  },[])
 
   // ACTIVE TODOS
   const item = allItem.filter(todo => (!todo.deleted)); // Todos not marked as deleted / Actually not working

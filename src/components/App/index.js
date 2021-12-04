@@ -17,6 +17,7 @@ import { TodosLoading } from "../TodosLoading";
 import { EmptyTodos } from "../EmptyTodos";
 import { EmptySearch } from "../EmptySearch";
 import { languageSupportContent } from "../../content/languageSupportContent";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 
 // COMPONENT
 function App() {
@@ -136,6 +137,8 @@ function App() {
               />
           </Modal>
       }
+
+      <ChangeAlertWithStorageListener />
     </>
   );
 }
