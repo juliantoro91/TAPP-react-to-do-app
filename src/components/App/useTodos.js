@@ -2,6 +2,8 @@ import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { alternateColorGenerator } from "../AlternateColorGenerator/AlternateColorGenerator";
 
+const TodosVersion = 'TODOS_V1';
+
 function useTodos() {
 
     // STATES
@@ -10,10 +12,12 @@ function useTodos() {
         saveItem: saveTodos,
         loading,
         error,
-    } = useLocalStorage('TODOS_V1', []);
+        sincronizedItem: sincronizedTodos,
+        sincronizeItem: sincronizeTodos,
+    } = useLocalStorage(TodosVersion, []);
     const [searchValue, setSearchValue] = React.useState(''); // For search bar
-    const [openModal, setOpenModal] = React.useState(false);
-    // const {language, saveLanguage} = useLanguage(); // TRUE is English / FALSE is Spanish
+    const [openModal, setOpenModal] = React.useState(false); // To open modal
+    const [modalType, setModalType] = React.useState('create');
 
     // TODOS COUNTERS
     const tasksState = {
@@ -26,9 +30,7 @@ function useTodos() {
     const searchedTodos = todos.filter(
         todo => (todo.text.toLowerCase().includes(searchValue.toLowerCase()))); // To filter todos by search criteria
     
-    const matchedSearchLabelText = "test";
-    //(language) ? " coincidences" : " coincidencias"
-    const matchedSearchLabel = searchedTodos.length + matchedSearchLabelText; // To update search side label
+    const matchedSearchLabel = searchedTodos.length; // To update search side label
 
     // COLOR ASIGNER
     const getColor = alternateColorGenerator();
@@ -89,6 +91,10 @@ function useTodos() {
         todoAdd,
         openModal,
         setOpenModal,
+        modalType,
+        setModalType,
+        sincronizedTodos,
+        sincronizeTodos,
     }
 }
 

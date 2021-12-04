@@ -11,9 +11,10 @@ const content = {
     },
 }
 
-function CreateTodoButton({ setOpenModal }) {
+function CreateTodoButton({ setOpenModal, setModalType }) {
 
     const CreateTodo = () => {
+        setModalType('create');
         setOpenModal(prevState => !prevState);
     }
 

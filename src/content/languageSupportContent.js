@@ -25,11 +25,16 @@ const languageSupportContent = {
         },
         EmptySearch: {
             one: "There is no results for ",
+            two: " coincidences",
         },
         TodoForm: {
             one: "Add a new Card",
             two: "Todo task to be added",
-        }
+        },
+        ChangeAlert: {
+            one: "Changes have occurred!",
+            two: "Reload App",
+        },
     },
     Spanish: {
         LanguageShifter: {
@@ -57,11 +62,16 @@ const languageSupportContent = {
         },
         EmptySearch: {
             one: "No hay resultados para ",
+            two: " coincidencias",
         },
         TodoForm: {
             one: "Añadir una nueva tarjeta",
             two: "Nueva actividad para ser añadida",
-        }
+        },
+        ChangeAlert: {
+            one: "¡Han ocurrido cambios!",
+            two: "Recargar aplicación",
+        },
     },
     Portuguese: {
         LanguageShifter: {
@@ -93,7 +103,11 @@ const languageSupportContent = {
         TodoForm: {
             one: "Adicionar um novo cartão",
             two: "Nova atividade a ser adicionada",
-        }
+        },
+        ChangeAlert: {
+            one: "Mudanças ocorreram!",
+            two: "Recarregar aplicativo",
+        },
     },
 }
 

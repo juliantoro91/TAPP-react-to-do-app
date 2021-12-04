@@ -36,6 +36,10 @@ function App() {
     todoAdd,
     openModal,
     setOpenModal,
+    modalType,
+    setModalType,
+    sincronizedTodos,
+    sincronizeTodos,
   } = useTodos();
 
   const {
@@ -80,14 +84,16 @@ function App() {
         onEmptyTodos={() => <EmptyTodos languageSupport={languageSupport} />}
         onEmptySearchResults={(searchText) => <EmptySearch searchText={searchText} languageSupport={languageSupport} />}
         render={todo => (
-          <TodoItem 
-            key={todo.text} 
-            text={todo.text} 
-            completed={todo.completed} 
-            color={todo.color} 
-            todoComplete={() => todoComplete(todo.text)} 
-            todoDelete={() => todoDelete(todo.text)}
-          />
+            (sincronizedTodos) ?
+              <TodoItem 
+                key={todo.text} 
+                text={todo.text} 
+                completed={todo.completed} 
+                color={todo.color} 
+                todoComplete={() => todoComplete(todo.text)} 
+                todoDelete={() => todoDelete(todo.text)}
+              />
+              : null
           )
         }
       >
@@ -126,19 +132,24 @@ function App() {
          }
        </TodoList> */}
 
-      <CreateTodoButton setOpenModal={setOpenModal}/>
+      <CreateTodoButton setOpenModal={setOpenModal} setModalType={setModalType} />
 
-      {!!openModal &&
-          <Modal>
-              <TodoForm 
-                todoAdd={todoAdd} 
-                setOpenModal={setOpenModal} 
-                languageSupport={languageSupport} 
-              />
-          </Modal>
+      {!!openModal && modalType === 'create' &&
+        <Modal>
+            <TodoForm 
+              todoAdd={todoAdd} 
+              setOpenModal={setOpenModal} 
+              languageSupport={languageSupport} 
+            />
+        </Modal>
       }
 
-      <ChangeAlertWithStorageListener />
+      <ChangeAlertWithStorageListener
+        languageSupport={languageSupport}
+        setOpenModal={setOpenModal}
+        setModalType={setModalType}
+        sincronize={sincronizeTodos}
+      />
     </>
   );
 }

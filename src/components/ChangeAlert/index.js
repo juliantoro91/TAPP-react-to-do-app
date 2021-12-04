@@ -1,15 +1,22 @@
 import React from "react";
+import './ChangeAlert.css';
 import { withStorageListener } from "./withStorageListener";
+import { Modal } from "../Modal";
 
-function ChangeAlert({ show, toggleShow }) {
+function ChangeAlert({ languageSupport, show, toggleShow }) {
+    
+    const textContent = languageSupport.ChangeAlert;
+
     if (show) {
         return (
-            <div>
-                <p>Hubo cambios</p>
-                <button
-                    onClick={() => toggleShow(prevState => !prevState)}    
-                >Volver a cargar la información</button>
-            </div>
+            <Modal>
+                <div className="change-alert">
+                    <p>{textContent.one}</p>
+                    <button
+                        onClick={() => toggleShow()}    
+                    >{textContent.two}</button>
+                </div>
+            </Modal>
         );
     } else {
         return null;

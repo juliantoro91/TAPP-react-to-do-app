@@ -40,7 +40,7 @@ function TodoSearch({ searchValue, setSearchValue, matchedSearchLabel, loading, 
                     onChange={onSearchValueChange} 
                     disabled={loading}
                 />
-                <p>{ verifyCoincidences(matchedSearchLabel) }</p>
+                <p>{ verifyCoincidences(matchedSearchLabel + textContent.two) }</p>
             </section>
         </CurvedContainer>
     );

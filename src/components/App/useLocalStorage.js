@@ -3,6 +3,7 @@ import React from "react";
 function useLocalStorage(itemName, initialValue) {
 
   // STATE
+  const [sincronizedItem, setSincronizedItem] = React.useState(true);
   const [error, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [allItem, setItem] = React.useState(initialValue);
@@ -25,14 +26,16 @@ function useLocalStorage(itemName, initialValue) {
         //throw new Error();
         setItem(parsedItem);
         setLoading(false);
+        setSincronizedItem(true);
       } catch(error) {
         setError(error);
       }
     }, 3000)
-  },[])
+  },[sincronizedItem])
 
   // ACTIVE TODOS
-  const item = allItem.filter(todo => (!todo.deleted)); // Todos not marked as deleted / Actually not working
+  const item = 
+  allItem.filter(todo => (!todo.deleted)); // Todos not marked as deleted / Actually not working
 
   const saveItem = (newItem) => {
     try {
@@ -43,12 +46,20 @@ function useLocalStorage(itemName, initialValue) {
       setError(error);
     }
   }
+
+  const sincronizeItem = () => {
+    setLoading(true);
+    setSincronizedItem(false);
+  }
   
   return {
     item,
     saveItem,
     loading,
+    setLoading,
     error,
+    sincronizedItem,
+    sincronizeItem,
   };
   
 }
