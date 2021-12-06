@@ -8,7 +8,7 @@ function useTodos() {
 
     // STATES
     const {
-        item: todos,
+        filteredItem: todos,
         saveItem: saveTodos,
         loading,
         error,
@@ -76,25 +76,33 @@ function useTodos() {
 
         saveTodos(newTodos);
     }
-    
-    return {
+
+    const state = {
         loading,
         error,
         tasksState,
         searchValue,
-        setSearchValue,
         matchedSearchLabel,
         totalTodos,
         searchedTodos,
+        openModal,
+        modalType,
+        sincronizedTodos,
+    }
+    
+    const updateState = {
+        setSearchValue,
         todoComplete,
         todoDelete,
         todoAdd,
-        openModal,
         setOpenModal,
-        modalType,
         setModalType,
-        sincronizedTodos,
         sincronizeTodos,
+    }
+
+    return {
+        state,
+        updateState,
     }
 }
 

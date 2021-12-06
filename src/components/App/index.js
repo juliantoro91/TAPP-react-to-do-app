@@ -22,25 +22,30 @@ import { ChangeAlert } from "../ChangeAlert";
 // COMPONENT
 function App() {
 
+  const { state, updateState } = useTodos();
+
   const {
     loading,
     error,
     tasksState,
     searchValue,
-    setSearchValue,
     matchedSearchLabel,
     totalTodos,
     searchedTodos,
+    openModal,
+    modalType,
+    sincronizedTodos,
+  } = state;
+
+  const {
+    setSearchValue,
     todoComplete,
     todoDelete,
     todoAdd,
-    openModal,
     setOpenModal,
-    modalType,
     setModalType,
-    sincronizedTodos,
     sincronizeTodos,
-  } = useTodos();
+  } = updateState;
 
   const {
     actualLanguage,
